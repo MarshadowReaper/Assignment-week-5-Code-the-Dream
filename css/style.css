@@ -151,3 +151,19 @@ h5 {
     flex-direction: column;
   }
 }
+#Skills ul {
+  font-size: 20px;
+  font-family: cursive;
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: column;
+}
+#Skills li {
+  font-size: medium;
+  color: rgb(255, 0, 255);
+  text-align: center;
+  width: 150px;
+}
