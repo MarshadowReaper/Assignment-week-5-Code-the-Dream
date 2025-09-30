@@ -27,6 +27,13 @@ h2 {
   font-family: cursive;
   color: aquamarine;
   margin: 30px, 20px, 30px, 40px;
+  width: 300px;
+  border: 20px solid rgb(255, 0, 255);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
 }
 @media only screen and (min-width: 767px) {
   h2 {
@@ -138,6 +145,7 @@ h5 {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+
   gap: 12px;
   flex-direction: column;
 }
@@ -146,6 +154,7 @@ h5 {
     list-style: none;
     padding: 15px;
     display: flex;
+
     flex-wrap: wrap;
     gap: 12px;
     flex-direction: column;
@@ -156,7 +165,9 @@ h5 {
   font-family: cursive;
   list-style: none;
   padding: 10px;
+  border: 10px solid rgb(255, 0, 255);
   display: flex;
+
   flex-wrap: wrap;
   gap: 12px;
   flex-direction: column;
@@ -166,4 +177,28 @@ h5 {
   color: rgb(255, 0, 255);
   text-align: center;
   width: 150px;
+}
+
+#Leave_a_Message {
+  font-size: 20px;
+  font-family: cursive;
+  color: rgb(255, 0, 0);
+  list-style: vertical;
+  width: 300px;
+  border: 10px solid rgb(0, 255, 255);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: column;
+}
+#messages {
+  list-style: none;
+  width: 300px;
+  border: 10px solid rgb(0, 255, 255);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: column;
 }
