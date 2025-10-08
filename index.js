@@ -51,3 +51,25 @@ removeButton.addEventListener("click", (event) => {
 removeButton.appendChild(document.createTextNode("newMessage"));
 newMessage.appendChild(messageList);
 messageForm.reset();
+
+fetch("https://api.github.com/users/MarshadowReaper/repos")
+  .then((response) => {
+    if (response.ok) {
+      throw new Error("Failed to fetch repositories");
+    }
+    return response.json();
+  })
+
+  .then((repositories) => {
+    console.log("Repositories: ", repositories);
+  })
+  .catch((error) => {
+    console.error("Error: ", error);
+  });
+const projectSection = document.getElementById("projects");
+const projectList = projectSection.querySelector("ul");
+for (let i = 0; i < repositories.length; i++) {
+  const project = document.createElement("li");
+  project.innerHTML = `<a href="${repositories[i].html_url}" target="_blank">${repositories[i].name}</a>`;
+  projectList.appendChild(project);
+}
