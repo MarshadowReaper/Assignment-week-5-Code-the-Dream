@@ -1,4 +1,4 @@
-const boby = document.body;
+const body = document.body;
 
 let footer = document.createElement("footer");
 body.appendChild(footer);
@@ -16,15 +16,14 @@ footer.appendChild(copyright);
 footer.style.textAlign = "center";
 
 const skills = ["JavaScript", "HTML", "CSS", "Java"];
-const skillsSection = document.getElementById("skills");
-const skillsList = skillsSection.querySelector("ul");
+const skillsSection = document.getElementById("Skills");
+skills.forEach((skill) => {
+  const skillList = document.createElement("li");
+  skillList.textContent = `${skill}`;
+  skillsSection.appendChild(skillList);
+});
 
-for (let i = 0; i < skills.length; i++) {
-  const skill = document.createElement("li");
-  skill.innerText = skills[i];
-  skillsList.appendChild(skill);
-}
-const messageForm = document.querySelector("form[name=leave_messages]");
+const messageForm = document.querySelector("form[name=leave_message]");
 messageForm.addEventListener("submit", (event) => {
   const userName = event.target.userName.value;
   const userEmail = event.target.userEmail.value;
@@ -35,8 +34,16 @@ messageForm.addEventListener("submit", (event) => {
   console.log("Email: ", userEmail);
   console.log("Message: ", userMessage);
 });
-const messageSection = document.getElementById("messages");
-const messageList = messageSection.querySelector("ul");
+function toggleMessagesSection() {
+  const messageSection = document.getElementById("messages");
+  const messageList = messageSection.querySelector("ul");
+  if (messageList.children.length === 0) {
+    messageSection.style.display = "none";
+  } else {
+    messageSection.style.display = "block";
+  }
+}
+
 const newMessage = document.createElement("li");
 newMessage.innerHTML = `<a href="mailto:< ${userEmail} >">${userName}</a> <span> wrote: ${userMessage} </span>`;
 
@@ -47,9 +54,11 @@ removeButton.type = "button";
 removeButton.addEventListener("click", (event) => {
   const entry = removeButton.parentNode;
   entry.remove();
+  toggleMessagesSection();
 });
-removeButton.appendChild(document.createTextNode("newMessage"));
-newMessage.appendChild(messageList);
+newMessage.appendChild(removeButton);
+messageList.appendChild(newMessage);
+toggleMessagesSection();
 messageForm.reset();
 
 fetch("https://api.github.com/users/MarshadowReaper/repos")
