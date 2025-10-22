@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(0, 0, 0);
+  background-image: url("https://cdn.wallpapersafari.com/40/86/RNZblY.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   color: rgb(0, 252, 197);
   margin: 24px;
 }
@@ -21,22 +24,22 @@ h1 {
     margin: 20px;
   }
 }
-h2 {
+#About {
   text-align: center;
   font-size: 30px;
   font-family: cursive;
   color: aquamarine;
-  margin: 30px, 20px, 30px, 40px;
-  width: 300px;
-  border: 20px solid rgb(255, 0, 255);
-  padding: 20px;
+  margin: auto;
+  width: 900px;
+
+  padding: 80px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   list-style: none;
 }
 @media only screen and (min-width: 767px) {
-  h2 {
+  #About {
     text-align: center;
     font-size: 40px;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
@@ -45,40 +48,40 @@ h2 {
     margin: 30px, 20px, 30px, 40px;
   }
 }
-h3 {
+#Connections {
   font-size: 40px;
   color: orange;
   text-align: center;
   width: 400px;
-  border: 30px solid rebeccapurple;
+
   padding: 20px;
-  margin: 20px;
+  margin: auto;
 }
 @media only screen and (min-width: 767px) {
-  h3 {
+  #Connections {
     font-size: 50px;
     color: rgb(25, 0, 255);
     text-align: center;
     width: 500px;
-    border: 40px solid rgb(0, 255, 255);
+
     padding: 25px;
-    margin: 25px;
+    margin: auto;
   }
 }
-h4 {
+#Skills {
   font-size: 30px;
   color: rgb(30, 255, 0);
   text-align: center;
-  width: 300px;
+  width: 600px;
   border: 20px solid rgb(240, 0, 0);
-  padding: 15px;
+  padding: 30px;
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 @media only screen and (min-width: 767px) {
-  h4 {
+  #Skills {
     font-size: 40px;
     color: rgb(229, 255, 0);
     text-align: center;
@@ -91,11 +94,23 @@ h4 {
     gap: 12px;
   }
 }
+#Experience {
+  font-size: 30px;
+  font-family: cursive;
+  color: rgb(255, 0, 255);
+  text-align: center;
+  width: 800px;
+  border: 20px solid rgb(0, 255, 0);
+  padding: 20px;
+  margin: auto;
+}
 #Experience ul {
   font-size: 20px;
   font-family: cursive;
   list-style: none;
   padding: 10px;
+  margin: auto;
+
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -114,37 +129,59 @@ h4 {
     flex-direction: column;
   }
 }
-h5 {
+#Hobbies {
+  font-size: 30px;
+  color: rgb(255, 165, 0);
+  text-align: center;
+  width: 900px;
+  border: 30px solid rgb(0, 128, 0);
+  padding: 20px;
+  margin: auto;
+}
+#Hobbies ul {
   font-size: 20px;
   color: rgb(0, 255, 255);
   text-align: center;
-  width: 200px;
-  border: 10px solid rgb(0, 0, 255);
-  padding: 10px;
-  margin: 10px;
+  width: 400px;
+
+  padding: 300px;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  list-style: vertical;
 }
 @media only screen and (min-width: 767px) {
-  h5 {
+  #Hobbies ul {
     font-size: 30px;
     color: rgb(255, 0, 255);
     text-align: center;
-    width: 300px;
-    border: 20px solid rgb(255, 0, 0);
-    padding: 15px;
-    margin: 15px;
+    width: 20px;
+
+    padding: 100px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    list-style: vertical;
   }
+}
+#Connections {
+  font-size: 40px;
+  font-family: cursive;
+  color: orange;
+  text-align: center;
+  width: 400px;
+
+  padding: 20px;
+  margin: auto;
 }
 #Connections ul {
   list-style: none;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
 
   gap: 12px;
   flex-direction: column;
@@ -154,29 +191,48 @@ h5 {
     list-style: none;
     padding: 15px;
     display: flex;
-
+    margin: auto;
     flex-wrap: wrap;
     gap: 12px;
     flex-direction: column;
   }
 }
-#Skills ul {
-  font-size: 20px;
+#Skills {
+  font-size: 30px;
   font-family: cursive;
-  list-style: none;
-  padding: 10px;
-  border: 10px solid rgb(255, 0, 255);
+  color: rgb(255, 0, 255);
+  text-align: center;
+  width: 300px;
+  border: 20px solid rgb(240, 0, 0);
+  padding: 15px;
+  margin: auto;
   display: flex;
-
   flex-wrap: wrap;
   gap: 12px;
-  flex-direction: column;
 }
+@media only screen and (min-width: 767px) {
+  #Skills {
+    font-size: 40px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    color: rgb(229, 255, 0);
+    text-align: center;
+    width: 400px;
+    border: 30px solid rgb(89, 0, 255);
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
 #Skills li {
   font-size: medium;
   color: rgb(255, 0, 255);
   text-align: center;
-  width: 150px;
+  padding: 30px;
+  width: 300px;
 }
 
 #Leave_a_Message {
@@ -185,20 +241,42 @@ h5 {
   color: rgb(255, 0, 0);
   list-style: vertical;
   width: 300px;
-  border: 10px solid rgb(0, 255, 255);
+
   padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: column;
+}
+#Leave_a_Message ul {
+  list-style: none;
+  width: 300px;
+
+  padding: 10px;
+  margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   flex-direction: column;
 }
 #messages {
-  list-style: none;
-  width: 300px;
-  border: 10px solid rgb(0, 255, 255);
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  flex-direction: column;
+  display: none;
+  font-size: 20px;
+  font-family: cursive;
+  color: rgb(0, 0, 0);
+  list-style: vertical;
+  width: 400px;
+  border: 10px solid rgb(255, 0, 255);
+  padding: 20px;
+  margin: auto;
+}
+#Projects {
+  font-size: 30px;
+  color: rgb(0, 255, 127);
+  text-align: center;
+  width: 800px;
+
+  padding: 20px;
+  margin: auto;
 }
