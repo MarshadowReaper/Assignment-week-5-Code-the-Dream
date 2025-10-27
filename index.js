@@ -34,6 +34,7 @@ messageForm.addEventListener("submit", (event) => {
   console.log("Email: ", userEmail);
   console.log("Message: ", userMessage);
 });
+
 function toggleMessagesSection() {
   const messageSection = document.getElementById("messages");
   const messageList = messageSection.querySelector("ul");
@@ -45,13 +46,13 @@ function toggleMessagesSection() {
 }
 
 const newMessage = document.createElement("li");
-newMessage.innerHTML = `<a href="mailto:< ${userEmail} >">${userName}</a> <span> wrote: ${userMessage} </span>`;
+newMessage.innerHTML = `<a href="mailto: ${userEmail}"></a>${userName}<a> <span> wrote: ${userMessage} </span></a>`;
 
 const removeButton = document.createElement("button");
 removeButton.innerText = "remove";
 removeButton.className = "remove-btn";
 removeButton.type = "button";
-removeButton.addEventListener("click", (event) => {
+removeButton.addEventListener("click", function () {
   const entry = removeButton.parentNode;
   entry.remove();
   toggleMessagesSection();
