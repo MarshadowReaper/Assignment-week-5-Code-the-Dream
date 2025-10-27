@@ -33,35 +33,33 @@ messageForm.addEventListener("submit", (event) => {
   console.log("Name: ", userName);
   console.log("Email: ", userEmail);
   console.log("Message: ", userMessage);
-});
 
-function toggleMessagesSection() {
-  const messageSection = document.getElementById("messages");
-  const messageList = messageSection.querySelector("ul");
-  if (messageList.children.length === 0) {
-    messageSection.style.display = "none";
-  } else {
-    messageSection.style.display = "block";
+  function toggleMessagesSection() {
+    const messageSection = document.getElementById("messages");
+    const messageList = messageSection.querySelector("ul");
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    } else {
+      messageSection.style.display = "block";
+    }
   }
-}
 
-const newMessage = document.createElement("li");
-newMessage.innerHTML = `<a href="mailto: ${userEmail}"></a>${userName}<a> <span> wrote: ${userMessage} </span></a>`;
+  const newMessage = document.createElement("li");
+  newMessage.innerHTML = `<a href="mailto: ${userEmail}">${userName}</a>: <span> ${userMessage} </span>`;
 
-const removeButton = document.createElement("button");
-removeButton.innerText = "remove";
-removeButton.className = "remove-btn";
-removeButton.type = "button";
-removeButton.addEventListener("click", function () {
-  const entry = removeButton.parentNode;
-  entry.remove();
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "remove";
+  removeButton.className = "remove-btn";
+  removeButton.type = "button";
+  removeButton.addEventListener("click", function () {
+    const entry = removeButton.parentNode;
+    entry.remove();
+  });
+  newMessage.appendChild(removeButton);
+  messageList.appendChild(newMessage);
   toggleMessagesSection();
+  messageForm.reset();
 });
-newMessage.appendChild(removeButton);
-messageList.appendChild(newMessage);
-toggleMessagesSection();
-messageForm.reset();
-
 fetch("https://api.github.com/users/MarshadowReaper/repos")
   .then((response) => {
     if (response.ok) {
