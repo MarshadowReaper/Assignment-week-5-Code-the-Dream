@@ -261,10 +261,11 @@ h1 {
   flex-direction: column;
 }
 #messages {
-  display: none;
+  display: flex;
   font-size: 20px;
+
   font-family: cursive;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 12, 214);
   list-style: vertical;
   width: 400px;
   border: 10px solid rgb(255, 0, 255);
