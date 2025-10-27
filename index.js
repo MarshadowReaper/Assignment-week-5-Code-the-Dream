@@ -16,7 +16,7 @@ footer.appendChild(copyright);
 footer.style.textAlign = "center";
 
 const skills = ["JavaScript", "HTML", "CSS", "Java"];
-const skillsSection = document.getElementById("Skills");
+const skillsSection = document.getElementById("skills");
 skills.forEach((skill) => {
   const skillList = document.createElement("li");
   skillList.textContent = `${skill}`;
@@ -24,60 +24,55 @@ skills.forEach((skill) => {
 });
 
 const messageForm = document.querySelector("form[name=leave_message]");
+const messageSection = document.getElementById("messages");
+const messageList = messageSection.querySelector("ul");
+
+function toggleMessagesSection() {
+  if (messageList.children.length === 0) {
+    messageSection.style.display = "none";
+  } else {
+    messageSection.style.display = "block";
+  }
+}
+
 messageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   const userName = event.target.userName.value;
   const userEmail = event.target.userEmail.value;
   const userMessage = event.target.userMessage.value;
 
-  event.preventDefault();
-  console.log("Name: ", userName);
-  console.log("Email: ", userEmail);
-  console.log("Message: ", userMessage);
-
-  function toggleMessagesSection() {
-    const messageSection = document.getElementById("messages");
-    const messageList = messageSection.querySelector("ul");
-    if (messageList.children.length === 0) {
-      messageSection.style.display = "none";
-    } else {
-      messageSection.style.display = "block";
-    }
-  }
-
   const newMessage = document.createElement("li");
-  newMessage.innerHTML = `<a href="mailto: ${userEmail}">${userName}</a>: <span> ${userMessage} </span>`;
+  newMessage.innerHTML = `<a href="mailto:${userEmail}">${userName}</a>: <span>${userMessage}</span>`;
 
+  // Create remove button
   const removeButton = document.createElement("button");
-  removeButton.innerText = "remove";
-  removeButton.className = "remove-btn";
   removeButton.type = "button";
-  removeButton.addEventListener("click", function () {
-    const entry = removeButton.parentNode;
-    entry.remove();
+  removeButton.innerText = "remove";
+  removeButton.addEventListener("click", () => {
+    newMessage.remove();
+    toggleMessagesSection();
   });
+
   newMessage.appendChild(removeButton);
   messageList.appendChild(newMessage);
+
   toggleMessagesSection();
   messageForm.reset();
 });
+
+toggleMessagesSection();
+const projectList = document.querySelector("#repositories ul");
+
 fetch("https://api.github.com/users/MarshadowReaper/repos")
   .then((response) => {
-    if (response.ok) {
-      throw new Error("Failed to fetch repositories");
-    }
+    if (!response.ok) throw new Error("Failed to fetch repositories");
     return response.json();
   })
-
   .then((repositories) => {
-    console.log("Repositories: ", repositories);
+    repositories.forEach((repo) => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a>`;
+      projectList.appendChild(li);
+    });
   })
-  .catch((error) => {
-    console.error("Error: ", error);
-  });
-const projectSection = document.getElementById("projects");
-const projectList = projectSection.querySelector("ul");
-for (let i = 0; i < repositories.length; i++) {
-  const project = document.createElement("li");
-  project.innerHTML = `<a href="${repositories[i].html_url}" target="_blank">${repositories[i].name}</a>`;
-  projectList.appendChild(project);
-}
+  .catch((error) => console.error("Error fetching repositories:", error));
